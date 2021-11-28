@@ -1,5 +1,10 @@
 package cl.desafiolatam.servicioControlAlumnos.repository;
 
-public interface AlumnoRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import cl.desafiolatam.servicioControlAlumnos.model.Alumno;
+
+
+public interface AlumnoRepository extends CrudRepository<Alumno, Integer>{
 
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<title>Listado de Direcciones</title>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">Servicio de Control de Alumnos</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-link active" aria-current="page" href="/alumnos">Alumnos</a> 
+						<a class="nav-link" href="/direcciones">Direcciones</a>
+						<a class="nav-link" href="/formularioAlumno">Agregar Alumno</a> 
+						<a class="nav-link" href="/formularioDireccion">Agregar Dirección</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<section>
+		<div class="container">
+			<h1 class="m-3">Listado de Direcciones</h1>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Calle</th>
+						<th>Número</th>
+						<th>Ciudad</th>
+						<th>Tipo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="direccion: ${direcciones}">
+						<td th:text="${direccion.calle}"></td>
+						<td th:text="${direccion.numero}"></td>
+						<td th:text="${direccion.ciudad}"></td>
+						<td th:text="${direccion.tipo}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<title>Listado de Alumnos</title>
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">Servicio de Control de Alumnos</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-link active" aria-current="page" href="/alumnos">Alumnos</a> 
+						<a class="nav-link" href="/direcciones">Direcciones</a>
+						<a class="nav-link" href="/formularioAlumno">Agregar Alumno</a> 
+						<a class="nav-link" href="/formularioDireccion">Agregar Dirección</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<section>
+		<div class="container">
+			<h1 class="m-3">Listado de Alumnos</h1>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Rut</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Edad</th>
+						<th>Dirección</th>
+						<th>Tipo dirección</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="alumno: ${alumnos}">
+						<td th:text="${alumno.rut}"></td>
+						<td th:text="${alumno.nombre}"></td>
+						<td th:text="${alumno.apellido}"></td>
+						<td th:text="${alumno.edad}"></td>
+						<td th:text="${alumno.direccion.getCalle() + ' ' + alumno.direccion.getNumero() + ' ' + alumno.direccion.getCiudad()}"></td>
+						<td th:text="${alumno.direccion.getTipo()}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>
+</html>
