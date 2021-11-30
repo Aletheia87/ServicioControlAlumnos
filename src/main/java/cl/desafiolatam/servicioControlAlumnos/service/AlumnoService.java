@@ -10,4 +10,5 @@ public interface AlumnoService {
 	public void save(Alumno alumno);
 	public List<Alumno> findAll();
 
+	
 }

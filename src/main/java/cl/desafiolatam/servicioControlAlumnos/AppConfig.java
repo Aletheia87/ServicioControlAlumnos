@@ -11,7 +11,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
-@ComponentScan("cl.desafiolatam.servicioControlDeAlumnos")
+@ComponentScan("cl.desafiolatam.servicioControlAlumnos")
 @PropertySource("classpath:database.properties")
 public class AppConfig {
 	

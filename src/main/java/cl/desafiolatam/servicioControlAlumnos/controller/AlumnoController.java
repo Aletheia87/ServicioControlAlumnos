@@ -34,13 +34,15 @@ public class AlumnoController {
 		model.addAttribute("direcciones", direccionService.findAll());
 		
 		return "crear-alumno";
+		
 	}
+	
 	
 	@PostMapping("/agregarAlumno")
 	public String agregarAlumno (@ModelAttribute Alumno alumno, Model model ) {
 		alumnoService.save(alumno);
 		
-		return formularioAlumno(model);
+		return "alumnos";
 		
 	}
 }

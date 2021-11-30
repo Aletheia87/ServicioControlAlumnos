@@ -1,12 +1,12 @@
 package cl.desafiolatam.servicioControlAlumnos.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,16 +18,18 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "direccion")
+@SequenceGenerator(name="SQ_DIRECCION", initialValue=1, allocationSize=1)
 public class Direccion {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false)
-	private Integer id;
+
+	@GeneratedValue(strategy= GenerationType.SEQUENCE,
+	generator="SQ_DIRECCION")
+	private int id;
 	private String calle;
 	private String numero;
 	private String ciudad;
+	@Enumerated(value = EnumType.STRING) 
 	private TipoDireccion tipo;
 
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -12,7 +11,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/">Servicio de Control de Alumnos</a>
+				<a class="navbar-brand" href="/alumnos">Servicio de Control de Alumnos</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 					aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -31,7 +30,7 @@
 		</nav>
 	</header>
 
-	<section>
+<section>
 		<div class="container">
 			<h1 class="m-3">Agregar Alumno</h1>
 			<div class="row col-8 d-flex justify-content-start">
@@ -64,16 +63,15 @@
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Fecha de Ingreso</label>
-						<input type="text" class="form-control" th:name="fechaIngreso"
+						<input type="date" class="form-control" th:name="fechaIngreso"
 							th:id="fechaIngreso">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Dirección</label> <select
 							class="form-select" id="direccion" th:name="direccion">
-							<option th:each="direccionTemp:${direcciones}"
-								th:text="${direccionTemp.calle +' '+ direccionTemp.numero + ' ' + direccionTemp.ciudad}"
-								th:value="${direccionTemp.id}">
-								</option>
+							<option th:each="direccion: ${direcciones}"
+								th:text="${direccion.calle +' '+ direccion.numero + ' ' + direccion.ciudad}"
+								th:value="${direccion.id}"></option>
 						</select>
 					</div>
 
@@ -84,5 +82,6 @@
 			</div>
 		</div>
 	</section>
+
 </body>
 </html>

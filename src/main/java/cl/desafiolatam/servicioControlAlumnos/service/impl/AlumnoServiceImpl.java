@@ -24,7 +24,7 @@ public class AlumnoServiceImpl implements AlumnoService{
 
 	@Override
 	public List<Alumno> findAll() {
-		return (List<Alumno>) alumnoRepository.findAll();
+		return (List<Alumno>)alumnoRepository.findAll();
 	}
 
 }

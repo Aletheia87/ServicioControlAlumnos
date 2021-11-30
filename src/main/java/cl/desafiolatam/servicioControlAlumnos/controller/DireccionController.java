@@ -26,7 +26,7 @@ public class DireccionController {
 	}
 	
 	@GetMapping("/formularioDireccion")
-	public String formularioDireccion() {
+	public String formularioDireccion(Model model) {
 		return"crear-direccion";
 	}
 	
@@ -34,7 +34,7 @@ public class DireccionController {
 	public String agregarDireccion(@ModelAttribute Direccion direccion, Model model) {
 		direccionService.save(direccion);
 		
-		return formularioDireccion();
+		return "direcciones";
 	}
 	
 }
